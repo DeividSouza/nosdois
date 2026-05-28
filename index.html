@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nós Dois ❤️</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body{
+      background: linear-gradient(135deg,#0f0f0f,#1e1e1e);
+      color:white;
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:20px;
+    }
+
+    .card{
+      width:100%;
+      max-width:500px;
+      background:#181818;
+      border-radius:25px;
+      padding:30px;
+      text-align:center;
+      box-shadow:0 0 30px rgba(255,255,255,0.08);
+    }
+
+    .photo{
+      width:160px;
+      height:160px;
+      border-radius:50%;
+      object-fit:cover;
+      border:4px solid #ff4d6d;
+      margin-bottom:20px;
+    }
+
+    h1{
+      font-size:2.2rem;
+      margin-bottom:10px;
+    }
+
+    .subtitle{
+      color:#cfcfcf;
+      margin-bottom:25px;
+    }
+
+    .counter{
+      background:#222;
+      border-radius:20px;
+      padding:20px;
+      margin-top:20px;
+    }
+
+    .time{
+      font-size:1.8rem;
+      font-weight:bold;
+      color:#ff4d6d;
+      margin-top:10px;
+    }
+
+    .message{
+      margin-top:25px;
+      line-height:1.6;
+      color:#e4e4e4;
+    }
+
+    .heart{
+      font-size:2rem;
+      animation:pulse 1.5s infinite;
+      margin-top:20px;
+    }
+
+    @keyframes pulse{
+      0%{transform:scale(1);}
+      50%{transform:scale(1.2);}
+      100%{transform:scale(1);}
+    }
+
+    audio{
+      margin-top:25px;
+      width:100%;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+
+    <img
+      class="photo"
+      src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=800"
+    />
+
+    <h1>Deivid & ❤️</h1>
+
+    <p class="subtitle">
+      Nosso tempo juntos
+    </p>
+
+    <div class="counter">
+      <h2>Estamos juntos há:</h2>
+
+      <div class="time" id="contador">
+        Carregando...
+      </div>
+    </div>
+
+    <div class="message">
+      Cada momento ao seu lado vale a pena.
+      Obrigado por fazer parte da minha vida ❤️
+    </div>
+
+    <div class="heart">
+      ❤️
+    </div>
+
+    <audio controls autoplay loop>
+      <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+    </audio>
+
+  </div>
+
+  <script>
+
+    // ALTERE A DATA AQUI
+    const dataNamoro = new Date("2025-01-01T00:00:00");
+
+    function atualizarContador(){
+
+      const agora = new Date();
+
+      const diferenca = agora - dataNamoro;
+
+      const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+
+      const horas = Math.floor(
+        (diferenca % (1000 * 60 * 60 * 24))
+        / (1000 * 60 * 60)
+      );
+
+      const minutos = Math.floor(
+        (diferenca % (1000 * 60 * 60))
+        / (1000 * 60)
+      );
+
+      document.getElementById("contador").innerHTML =
+        `${dias} dias <br> ${horas}h ${minutos}min`;
+
+    }
+
+    atualizarContador();
+
+    setInterval(atualizarContador,1000);
+
+  </script>
+
+</body>
+</html>
